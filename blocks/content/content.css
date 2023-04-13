@@ -1,0 +1,9 @@
+.content {
+    grid-area: content;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 900px) {
+    .content {
+        padding: 0 19px;
+}}

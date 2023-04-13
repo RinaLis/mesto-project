@@ -1,0 +1,15 @@
+.profile__edit {
+    grid-area: profile__edit;
+    width: 24px;
+    aspect-ratio: 1 / 1;
+    background-color: black;
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+    outline: none;
+    padding: 0;
+    justify-self: start;
+}
+
+.profile__edit:hover {
+    opacity: 0.6;
+}

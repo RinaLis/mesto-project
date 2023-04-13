@@ -1,0 +1,15 @@
+.footer {
+    grid-area: footer;
+    margin: 67px 0 60px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 900px) {
+    .footer {
+        padding: 0 19px;
+}}
+
+@media screen and (max-width: 654px) {
+    .footer {
+        margin: 48px 0 36px;
+}}

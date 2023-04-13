@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./image/header__logo.svg" alt = "Логотип Mesto">
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__image"></div>
+            <div class="profile__info">
+                <h1 class="profile__name">Rina Lis</h1>
+                <button class="profile__edit"><img src="./image/profile__edit-info.svg" alt="Редактировать профиль"></button>
+                <p class="profile__status">Новые впечатления &ndash; это жизнь</p>
+            </div>
+            <button class="profile__add"><img src="./image/profile__add-info.svg" alt="Добавить"></button>
+        </section>
+        <section class="popup popup_opened">
+                <form class="popup__container">
+                    <button class="popup__close"><img class="popup__close-image" src="./image/Close Icon.svg"></button>
+                    <h2 class="popup__heading">Редактировать профиль</h2>                    
+                    <input type="text" id="name" name="name" placeholder="Rina Lis" class="popup__input">
+                    <input type="text" id="heading" name="heading" placeholder="Новые впечатления &ndash; это жизнь" class="popup__input">
+                    <button class="popup__button">Сохранить</button>
+                </form>
+            </div>
+        </section>
+        <section class="cards">
+            <ul class = "cards__items">
+                <li class="cards__item">
+                    <img class="cards__image" src="./image/abchazia.png" alt="Природа Абхазии">
+                    <h2 class="cards__name">Абхазия</h2>
+                    <div class="cards__stroke"></div>
+                </li>
+                <li class="cards__item">
+                    <img class="cards__image" src="./image/sankt-peterburg.png" alt="Город в лучах закатного солнца, частично скрытого солнцем">
+                    <h2 class="cards__name">Санкт-Петербург</h2>
+                    <div class="cards__stroke"></div>
+                </li>
+                <li class="cards__item">
+                    <img class="cards__image" src="./image/grot-cherep.png" alt="Вид из грота Череп">
+                    <h2 class="cards__name">Грот Череп</h2>
+                    <div class="cards__stroke"></div>
+                </li>
+                <li class="cards__item">
+                    <img class="cards__image" src="./image/kamchatka.png" alt="Озеро между вудканами">
+                    <h2 class="cards__name">Камчатка</h2>
+                    <div class="cards__stroke"></div>
+                </li>
+                <li class="cards__item">
+                    <img class="cards__image" src="./image/ladoga.png" alt="Озеро, освещаемое заходящим солнцем">
+                    <h2 class="cards__name">Ладожское озеро</h2>
+                    <div class="cards__stroke"></div>
+                </li>
+                <li class="cards__item">
+                    <img class="cards__image" src="./image/vladik.png" alt="Хмурое небо на фоне природы Дальнего востока">
+                    <h2 class="cards__name">Владивосток</h2>
+                    <div class="cards__stroke"></div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__caption">&copy; 2020 Mesto Russia</p>
+    </footer>
+</body>
+</html>

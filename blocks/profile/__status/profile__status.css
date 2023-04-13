@@ -1,0 +1,12 @@
+.profile__status {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21,78px;
+    color: #FFFFFF;
+    grid-area: profile__status;
+    margin: 0;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

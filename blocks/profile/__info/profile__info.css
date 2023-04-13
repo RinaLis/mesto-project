@@ -1,0 +1,27 @@
+.profile__info {
+    margin: 0 30px 0;
+    display: grid;
+    grid-template-columns: fit-content(294px) minmax(24px, 1fr);
+    grid-template-rows: fit-content(100px);
+    grid-template-areas:
+    "profile__name profile__edit"
+    "profile__status profile__status";
+    row-gap: 16px;
+    column-gap: 18px;
+    align-items: end;
+    grid-area: profile__info;
+    align-self: center;
+}
+
+
+@media screen and (max-width: 654px) {
+    .profile__info {
+        grid-template-columns: 1fr fit-content(190px) 1fr;
+        grid-template-areas:
+        ". profile__name profile__edit"
+        "profile__status profile__status profile__status";
+        row-gap: 14px;
+        justify-items: center;
+        margin: 0;
+    }
+}

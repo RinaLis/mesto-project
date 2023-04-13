@@ -1,0 +1,16 @@
+.cards__stroke {
+    background-image: url(../../../image/stroke.svg);
+    grid-area: cards__stroke;
+    width: 22px;
+    height: 19px;
+    align-self: center;
+}
+
+.cards__stroke:hover {
+    opacity: 0.5;
+}
+
+.cards__stroke:active {
+    background-image: url(../../../image/stroke__black.svg);
+    opacity: 1;
+}
