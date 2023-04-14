@@ -4,6 +4,9 @@
     width: 22px;
     height: 19px;
     align-self: center;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
 }
 
 .cards__stroke:hover {

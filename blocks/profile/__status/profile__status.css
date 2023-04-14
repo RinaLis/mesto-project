@@ -1,7 +1,7 @@
 .profile__status {
     font-weight: 400;
     font-size: 18px;
-    line-height: 21,78px;
+    line-height: 21.78px;
     color: #FFFFFF;
     grid-area: profile__status;
     margin: 0;
@@ -9,4 +9,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    max-width: 400px;
+}
+
+@media screen and (max-width: 654px) {
+    .profile__status {
+        max-width: none;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        line-height: 16.94px;
+    }
 }

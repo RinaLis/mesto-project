@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 654px) {
     .profile__info {
-        grid-template-columns: 1fr fit-content(190px) 1fr;
+        grid-template-columns: 1fr minmax(190px, 8fr) 1fr;
         grid-template-areas:
         ". profile__name profile__edit"
         "profile__status profile__status profile__status";

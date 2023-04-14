@@ -1,7 +1,7 @@
 .profile__image {
     width: 120px;
     height: 120px;
-    background: url(../../../image/ava.jpg) no-repeat right center/cover;
     border-radius: 50%;
     grid-area: profile__image;
+    object-fit: cover;
 }

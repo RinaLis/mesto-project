@@ -2,13 +2,19 @@
     grid-area: profile__add;
     width: 100%;
     height: 50px;
-    background-color: black;
+    background-image: url(../../../image/profile__add-info.svg);
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
+    background-position: center;
+    background-color: transparent;
     box-sizing: border-box;
-    border: 1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
     outline: none;
     padding: 0;
     align-self: center;
     justify-self: end;
+    cursor: pointer;
 }
 
 .profile__add:hover {
@@ -18,4 +24,5 @@
 @media screen and (max-width: 654px) {
     .profile__add {
         margin-top: 10px;
+        background-size: 16px 16px;
 }}
