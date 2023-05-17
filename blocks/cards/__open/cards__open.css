@@ -1,0 +1,9 @@
+.cards__open {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    grid-area: cards__image;
+}

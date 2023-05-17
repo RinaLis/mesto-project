@@ -54,10 +54,21 @@
 
     <template id="card-template">
         <li class="cards__item">
-            <img class="cards__image">
+            <button class="cards__open"><img class="cards__image"></button>
             <button class="cards__delete" type="button" aria-label="Удалить"></button>
             <h2 class="cards__name"></h2>
             <button class="cards__stroke" type="button" aria-label="Нравится"></button>
+            <div class="cards__overlay">
+                <div class="cards__big-card">
+                    <figure class="cards__figure">
+                        <img class="cards__big-image">
+                        <figcaption class="cards__caption"></figcaption>
+                    </figure>
+                    <button class="cards__close" type="button" aria-label="Закрыть"></button>
+                </div>
+                
+                
+            </div>
         </li>
     </template>
 

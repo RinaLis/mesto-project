@@ -1,0 +1,14 @@
+.cards__overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    opacity: 0;
+    z-index: -1;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}

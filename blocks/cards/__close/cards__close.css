@@ -1,0 +1,27 @@
+.cards__close {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    top: -40px;
+    right: -40px;
+    background-image: url(../../../image/Close-Icon.svg);
+    background-size: contain;
+    background-color: transparent;
+    align-self: end;
+    cursor: pointer;
+}
+
+.cards__close:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 654px) {
+    .cards__close {
+        width: 20px;
+        height: 20px;
+        right: 0;
+        top: -36px;
+}}

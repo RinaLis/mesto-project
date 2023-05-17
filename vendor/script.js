@@ -62,6 +62,8 @@ function addPlace(name, link) {
   
     cardElement.querySelector('.cards__image').setAttribute('src', link);
     cardElement.querySelector('.cards__name').textContent = name;
+    cardElement.querySelector('.cards__big-image').setAttribute('src', link);
+    cardElement.querySelector('.cards__caption').textContent = name;
     
     cardsList.append(cardElement);
 
@@ -74,6 +76,18 @@ function addPlace(name, link) {
     deleteButton.addEventListener('click', function (evt) {
       const cardItem = deleteButton.closest('.cards__item');
       cardItem.remove();
+    })
+    
+    const bigCard = cardElement.querySelector('.cards__overlay')
+    const openButton = cardElement.querySelector('.cards__open');
+
+    openButton.addEventListener('click', function (evt) {
+      bigCard.classList.add('cards__overlay_active');
+
+      const closeButton = bigCard.querySelector('.cards__close');
+      closeButton.addEventListener('click', function() {
+        bigCard.classList.remove('cards__overlay_active');
+      })
     })
   }
 
