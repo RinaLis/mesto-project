@@ -1,0 +1,4 @@
+.cards__stroke_active {
+    background-image: url(../../../../image/stroke__black.svg);
+    opacity: 1;
+}

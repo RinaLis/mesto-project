@@ -8,4 +8,5 @@
     "cards__image cards__image"
     "cards__name cards__stroke";
     overflow: hidden;
+    position: relative;
 }

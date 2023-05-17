@@ -21,54 +21,46 @@
             </div>
             <button class="profile__add" type="button" aria-label="Добавить"></button>
         </section>
-        <section class="popup">
-                <div class="popup__container">
-                    <button class="popup__close" type="button" aria-label="Закрыть"></button>
-                    <h2 class="popup__heading">Редактировать профиль</h2>  
-                    <form class="popup__form" name="profile-info" method="POST" action="#">
-                        <input type="text" id="name" name="name" placeholder="Rina Lis" class="popup__input">
-                        <input type="text" id="heading" name="status" placeholder="Новые впечатления &ndash; это жизнь" class="popup__input">
-                        <button class="popup__button" type="submit">Сохранить</button>
-                    </form>
-                </div>
-        </section>
         <section class="cards">
             <ul class = "cards__items">
-                <li class="cards__item">
-                    <img class="cards__image" src="./image/abchazia.png" alt="Природа Абхазии">
-                    <h2 class="cards__name">Абхазия</h2>
-                    <button class="cards__stroke" type="button" aria-label="Нравится"></button>
-                </li>
-                <li class="cards__item">
-                    <img class="cards__image" src="./image/sankt-peterburg.png" alt="Город в лучах закатного солнца, частично скрытого солнцем">
-                    <h2 class="cards__name">Санкт-Петербург</h2>
-                    <button class="cards__stroke" type="button" aria-label="Нравится"></button>
-                </li>
-                <li class="cards__item">
-                    <img class="cards__image" src="./image/grot-cherep.png" alt="Вид из грота Череп">
-                    <h2 class="cards__name">Грот Череп</h2>
-                    <button class="cards__stroke" type="button" aria-label="Нравится"></button>
-                </li>
-                <li class="cards__item">
-                    <img class="cards__image" src="./image/kamchatka.png" alt="Озеро между вудканами">
-                    <h2 class="cards__name">Камчатка</h2>
-                    <button class="cards__stroke" type="button" aria-label="Нравится"></button>
-                </li>
-                <li class="cards__item">
-                    <img class="cards__image" src="./image/ladoga.png" alt="Озеро, освещаемое заходящим солнцем">
-                    <h2 class="cards__name">Ладожское озеро</h2>
-                    <button class="cards__stroke" type="button" aria-label="Нравится"></button>
-                </li>
-                <li class="cards__item">
-                    <img class="cards__image" src="./image/vladik.png" alt="Хмурое небо на фоне природы Дальнего востока">
-                    <h2 class="cards__name">Владивосток</h2>
-                    <button class="cards__stroke" type="button" aria-label="Нравится"></button>
-                </li>
             </ul>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__caption">&copy; 2020 Mesto Russia</p>
     </footer>
+    <section class="popup popup_view_edit">
+        <div class="popup__container">
+            <button class="popup__close" type="button" aria-label="Закрыть"></button>
+            <h2 class="popup__heading">Редактировать профиль</h2>  
+            <form class="popup__form" name="profile-info" method="POST" action="#">
+                <input type="text" id="name" name="name" placeholder="" class="popup__input">
+                <input type="text" id="status" name="status" placeholder="" class="popup__input">
+                <button class="popup__button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </section>
+    <section class="popup popup_view_place">
+        <div class="popup__container">
+            <button class="popup__close" type="button" aria-label="Закрыть"></button>
+            <h2 class="popup__heading">Новое место</h2>  
+            <form class="popup__form" name="profile-info" method="POST" action="#">
+                <input type="text" id="place" name="name" placeholder="Название" class="popup__input">
+                <input type="text" id="link" name="status" placeholder="Ссылка на картинку" class="popup__input">
+                <button class="popup__button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </section>
+
+    <template id="card-template">
+        <li class="cards__item">
+            <img class="cards__image">
+            <button class="cards__delete" type="button" aria-label="Удалить"></button>
+            <h2 class="cards__name"></h2>
+            <button class="cards__stroke" type="button" aria-label="Нравится"></button>
+        </li>
+    </template>
+
+    <script src="./vendor/script.js"></script>
 </body>
 </html>

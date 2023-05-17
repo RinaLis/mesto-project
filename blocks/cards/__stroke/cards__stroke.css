@@ -13,7 +13,3 @@
     opacity: 0.5;
 }
 
-.cards__stroke:active {
-    background-image: url(../../../image/stroke__black.svg);
-    opacity: 1;
-}
