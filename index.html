@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./image/header__logo.svg" alt = "Логотип Mesto">
+        <img class="header__logo" src="<%=require('./image/header__logo.svg')%>" alt = "Логотип Mesto">
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__image" src="./image/ava.jpg" alt="Аватар пользователя">
+            <img class="profile__image" src="<%=require('./image/ava.jpg')%>" alt="Аватар пользователя">
             <div class="profile__info">
                 <h1 class="profile__name">Rina Lis</h1>
                 <button class="profile__edit" type="button"  aria-label="Редактировать"></button>
-                <p class="profile__status">Новые впечатления &ndash; это жизнь</p>
+                <p class="profile__status">Новые впечатления - это жизнь</p>
             </div>
             <button class="profile__add" type="button" aria-label="Добавить"></button>
         </section>
@@ -30,29 +29,75 @@
         <p class="footer__caption">&copy; 2020 Mesto Russia</p>
     </footer>
     <section class="popup popup_view_edit">
-        <div class="popup__container">
+        <div class="popup__container popup__main-container">
             <button class="popup__close" type="button" aria-label="Закрыть"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>  
-            <form class="popup__form" name="profile-info" method="POST" action="#">
-                <input type="text" id="name" name="name" placeholder="Имя" class="popup__input">
-                <input type="text" id="status" name="status" placeholder="Статус" class="popup__input">
-                <button class="popup__button" type="submit">Сохранить</button>
+            <form class="popup__form" name="profile-info" method="POST" action="#" novalidate>
+                <fieldset class="popup__set">
+                    <label class="popup__input-box">
+                        <input 
+                            type="text" 
+                            id="name-input" 
+                            name="name" 
+                            class="popup__input" 
+                            required 
+                            minlength="2" maxlength="40" 
+                            pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
+                        <span class="popup__placeholder name-input-placeholder">Имя</span>
+                        <span class="popup__input-error name-input-error"></span>
+                    </label>
+                    <label class="popup__input-box">
+                        <input 
+                            type="text" 
+                            id="status-input" 
+                            name="status" 
+                            class="popup__input" 
+                            required 
+                            minlength="2" maxlength="200" 
+                            pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
+                        <span class="popup__placeholder status-input-placeholder">Статус</span>
+                        <span class="popup__input-error status-input-error"></span>
+                    </label>
+                    <button class="popup__button" type="submit">Сохранить</button>
+                </fieldset>
             </form>
         </div>
     </section>
     <section class="popup popup_view_place">
-        <div class="popup__container">
+        <div class="popup__container popup__main-container">
             <button class="popup__close" type="button" aria-label="Закрыть"></button>
             <h2 class="popup__heading">Новое место</h2>  
-            <form class="popup__form" name="profile-info" method="POST" action="#">
-                <input type="text" id="place" name="name" placeholder="Название" class="popup__input">
-                <input type="text" id="link" name="status" placeholder="Ссылка на картинку" class="popup__input">
-                <button class="popup__button" type="submit">Сохранить</button>
+            <form class="popup__form" name="profile-info" method="POST" action="#" novalidate>
+                <fieldset class="popup__set">
+                    <label class="popup__input-box">
+                        <input 
+                            type="text" 
+                            id="place-name-input" 
+                            name="name" 
+                            class="popup__input" 
+                            required 
+                            minlength="2" maxlength="30"
+                            pattern="^[a-zA-Zа-яА-ЯёЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"> 
+                        <span class="popup__placeholder popup__placeholder_active place-name-input-placeholder">Название</span>
+                        <span class="popup__input-error place-name-input-error"></span>
+                    </label>
+                    <label class="popup__input-box">
+                        <input 
+                            type="url" 
+                            id="image-link-input" 
+                            name="status" 
+                            class="popup__input" 
+                            required >
+                        <span class="popup__placeholder popup__placeholder_active image-link-input-placeholder">Ссылка на картинку</span>
+                        <span class="popup__input-error image-link-input-error"></span>
+                    </label>
+                    <button class="popup__button" type="submit">Создать</button>
+                </fieldset>
             </form>
         </div>
     </section>
     <section class="popup popup_view_card">
-        <div class="popup__card">
+        <div class="popup__card popup__main-container">
             <figure class="popup__figure">
                 <img class="popup__image">
                 <figcaption class="popup__caption"></figcaption>
@@ -70,7 +115,11 @@
         </li>
     </template>
 
-    <script src="./src/constants.js"></script>
-    <script src="./src/script.js"></script>
+    <script type="module" src="./src/constants.js"></script>
+    <script type="module" src="./src/card.js"></script>
+    
+    <script type="module" src="./src/validate.js"></script>
+    <script type="module" src="./src/modal.js"></script>
+    <script type="module" src="./src/index.js"></script>
 </body>
 </html>
