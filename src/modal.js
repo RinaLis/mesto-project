@@ -1,44 +1,52 @@
 import { checkElementsState } from './validate.js'
-import { formAddElement, popupAddContainer, namePopup, statusPopup, popupEditContainer } from './index.js';
+import { popupAddContainer, nameEditPopup, statusEditPopup, popupEditContainer, nameAddPopup, linkAddPopup, formAddElement, selectors } from './constants.js';
 import { addPlace } from './card.js';
 
 export function submitEditProfileForm (evt, nameProfile, statusProfile) {
     evt.preventDefault();
-    nameProfile.textContent = namePopup.value;
-    statusProfile.textContent = statusPopup.value;
+    nameProfile.textContent = nameEditPopup.value;
+    statusProfile.textContent = statusEditPopup.value;
     closePopup(popupEditContainer);
 }
 
 export function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc)
+}
+
+const closePopupEsc = (evt) => {
+  if (evt.key == 'Escape') {
+    closePopup(popup)
+  } 
 }
 
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
-  if (popup.querySelector('.popup__set') !== null) {
-    const fieldsetElement = popup.querySelector('.popup__set');
-    checkElementsState(fieldsetElement);
-  }
-  popup.addEventListener('click', (evt) => {
-    const withinBoundaries = evt.target.closest('.popup__main-container');
-    evt.stopPropagation();
-    if(withinBoundaries === popup.closest('.popup__main-container')) {
-      closePopup(popup)
-    }    
-  })
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key == 'Escape') {
-      closePopup(popup)
-    } 
-  })
+  document.addEventListener('keydown', closePopupEsc)
 }
+
+
+
+export function openPopupAndCheck(popup) {
+  openPopup(popup);
+  const formElement = popup.querySelector('.popup__form');
+  checkElementsState(formElement, selectors);
+  document.addEventListener('keydown', closePopupEsc)
+}
+
+const popups = document.querySelectorAll('.popup');
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget || evt.target.classList.contains('popup__close')){
+      closePopup(popup);
+    }
+  });
+});
 
 export function submitAddPlaceForm(evt) {
   evt.preventDefault();
-  const nameAddPopup = formAddElement.querySelector('#place-name-input');
-  const linkAddPopup = formAddElement.querySelector('#image-link-input');
-  addPlace(nameAddPopup.value, linkAddPopup.value)
-  closePopup(popupAddContainer)
-  nameAddPopup.value = '';
-  linkAddPopup.value = '';
+
+  addPlace(nameAddPopup.value, linkAddPopup.value);
+  closePopup(popupAddContainer);
+  formAddElement.reset()
 }
