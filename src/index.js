@@ -1,8 +1,8 @@
 import { toggleButtonState, checkInputValidity, enableValidation } from './validate.js';
 import { submitEditProfileForm, submitAddPlaceForm, openPopupAndCheck, closePopup } from './modal.js';
-import '../pages/index.css';
 import { nameProfile, statusProfile, profileEditButton, nameEditPopup, statusEditPopup, formSaveEditButton, popupEditContainer,  formEdit, popupEditCloseButton, cardAddButton, formAddElement, popupAddCloseButton, popupAddContainer, selectors, profileEditAva, popupAvaContainer, formAvaElement, profileAva, avaEditPopup, buttonSetAva} from './constants.js';
 import { getInitialCards, getPersonInfo, setAvatar } from './api.js';
+import '../pages/index.css';
 
 function saveEditProfile () {
   nameEditPopup.value = nameProfile.textContent;
