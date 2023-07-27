@@ -1,9 +1,8 @@
 import { toggleButtonState, checkInputValidity, enableValidation } from './validate.js';
 import { submitEditProfileForm, submitAddPlaceForm, openPopupAndCheck, closePopup } from './modal.js';
-import { addPlace } from './card.js';
 import '../pages/index.css';
-import { nameProfile, statusProfile, initialCards, profileEditButton, nameEditPopup, statusEditPopup, formSaveEditButton, popupEditContainer,  formEdit, popupEditCloseButton, cardAddButton, formAddElement, popupAddCloseButton, popupAddContainer, selectors } from './constants.js';
-
+import { nameProfile, statusProfile, profileEditButton, nameEditPopup, statusEditPopup, formSaveEditButton, popupEditContainer,  formEdit, popupEditCloseButton, cardAddButton, formAddElement, popupAddCloseButton, popupAddContainer, selectors, profileEditAva, popupAvaContainer, formAvaElement, profileAva, avaEditPopup, buttonSetAva} from './constants.js';
+import { getInitialCards, getPersonInfo, setAvatar } from './api.js';
 
 function saveEditProfile () {
   nameEditPopup.value = nameProfile.textContent;
@@ -14,6 +13,22 @@ function saveEditProfile () {
     checkInputValidity(formEdit, formItem, selectors);
   })
   openPopupAndCheck(popupEditContainer);
+}
+
+const setNewAva = () => {
+  buttonSetAva.textContent = 'Сохранение...'
+  profileAva.setAttribute('src', avaEditPopup.value);
+  setAvatar(avaEditPopup.value)
+  .then(()=>{
+    closePopup(popupAvaContainer)
+  })
+  .then(()=>{buttonSetAva.textContent = 'Сохранить'})
+}
+ 
+export const setProfileInfo = (name, status, link) => {
+  nameProfile.textContent = name
+  statusProfile.textContent = status
+  profileAva.setAttribute('src', link)
 }
 
 formEdit.addEventListener('submit', (evt) => {
@@ -33,9 +48,16 @@ popupAddCloseButton.addEventListener('click', function() {
 })
 
 formAddElement.addEventListener('submit', submitAddPlaceForm);
-  
-initialCards.forEach(function(item) {
-  addPlace(item.name, item.link);
-})
+
+profileEditAva.addEventListener('click', function() {openPopupAndCheck(popupAvaContainer)})
+
+formAvaElement.addEventListener('submit', setNewAva);
+
+getInitialCards()
+
+export const personId = getPersonInfo()
+
+
+
 
 enableValidation(selectors);

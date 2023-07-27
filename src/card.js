@@ -1,4 +1,7 @@
 import { openPopup, closePopup } from "./modal.js";
+import { personId } from "./index.js";
+import { saveNewLike, deleteLike, deleteCard } from "./api.js";
+import { buttonDelete, popupDeleteContainer } from "./constants.js";
 
 const cardTemplate = document.querySelector('#card-template').content;
 
@@ -9,26 +12,54 @@ const cardCloseButton = bigCard.querySelector('.popup__close');
 
 cardCloseButton.addEventListener('click', function() {closePopup(bigCard)})
 
-function createCard(name, link) {
+const createCard = (config) => {
   const cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true);
   const cardImage = cardElement.querySelector('.cards__image')
   const cardName = cardElement.querySelector('.cards__name')
+  const numLikes = cardElement.querySelector('.cards__stroke-number')
 
-  const cardText = name
-  const cardLink = link
+  const cardText = config.name
+  const cardLink = config.link
   
   cardImage.setAttribute('src', cardLink);
   cardImage.setAttribute('alt', cardText);
   cardName.textContent = cardText;
+  numLikes.textContent = config.likes.length;
+
+  personId.then((id) => {
+    if (config.likes.some((item)=>{
+      return (item._id === id)
+    })) {
+      cardElement.querySelector('.cards__stroke').classList.add('cards__stroke_active')
+    }
+  })
   
   cardElement.querySelector('.cards__stroke').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('cards__stroke_active');
+    if (evt.target.classList.contains('cards__stroke_active')) {
+      deleteLike(config.id).then((number)=>{
+        numLikes.textContent = number
+        evt.target.classList.remove('cards__stroke_active')
+      })
+    } else {
+      saveNewLike(config.id).then((number)=>{
+        numLikes.textContent = number
+        evt.target.classList.add('cards__stroke_active')
+      })
+    }  
   })
-  
-  const cardDeleteButton = cardElement.querySelector('.cards__delete');
-  cardDeleteButton.addEventListener('click', function (evt) {
-    cardElement.remove();
-  })
+
+  personId.then((id) => {
+    if (id === config.owner) {
+      const cardDeleteButton = cardElement.querySelector('.cards__delete');
+      cardDeleteButton.classList.add('cards__delete_active')
+      cardDeleteButton.addEventListener('click', function (evt) {
+        openPopup(popupDeleteContainer)
+        buttonDelete.addEventListener('click', (evt) => {
+          deleteCardFinally(cardElement, config.id)
+        })
+      })
+    }
+  }) 
       
   const cardOpenButton = cardElement.querySelector('.cards__open');
   cardOpenButton.addEventListener('click', function (evt) {
@@ -49,8 +80,14 @@ bigCard.addEventListener('click', (evt) => {
   }    
 })
 
-export function addPlace(name, link) {
-  const cardElement = createCard(name, link);
+export const addPlace = (config) => {
+  const cardElement = createCard(config);
   const cardsList = document.querySelector('.cards__items');
   cardsList.prepend(cardElement);
+}
+
+const deleteCardFinally = (cardElement, id) => {
+  cardElement.remove();
+  deleteCard(id);
+  closePopup(popupDeleteContainer)
 }

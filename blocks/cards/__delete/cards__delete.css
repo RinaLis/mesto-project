@@ -1,4 +1,5 @@
 .cards__delete {
+    display: none;
     background-image: url(../../../image/delete.svg);
     grid-area: cards__image;
     width: 18px;

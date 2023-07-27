@@ -1,0 +1,4 @@
+.popup__button_view_delete {
+    margin: 7px 36px 36px;
+    width: calc(100% - 72px);
+}

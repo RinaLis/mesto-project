@@ -6,7 +6,8 @@
     grid-template-columns: 1fr 42px;
     grid-template-areas:
     "cards__image cards__image"
-    "cards__name cards__stroke";
+    "cards__name cards__stroke"
+    "cards__name cards__stroke-number";
     overflow: hidden;
     position: relative;
 }

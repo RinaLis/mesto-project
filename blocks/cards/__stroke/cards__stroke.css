@@ -1,12 +1,12 @@
 .cards__stroke {
     background-image: url(../../../image/stroke.svg);
-    grid-area: cards__stroke;
     width: 22px;
     height: 19px;
-    align-self: center;
     border: 0;
     cursor: pointer;
     background-color: transparent;
+    align-self: end;
+    grid-area: cards__stroke;
 }
 
 .cards__stroke:hover {
