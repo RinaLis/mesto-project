@@ -1,5 +1,4 @@
 export const popupEditContainer = document.querySelector('.popup_view_edit-info');
-export const popupEditCloseButton = popupEditContainer.querySelector('.popup__close');
 export const formEdit = popupEditContainer.querySelector('.popup__form')
 export const nameEditPopup = formEdit.querySelector('#name-input');
 export const statusEditPopup = formEdit.querySelector('#status-input');
@@ -7,7 +6,6 @@ export const formSaveEditButton = popupEditContainer.querySelector('.popup__butt
 
 
 export const popupAddContainer = document.querySelector('.popup_view_place');
-export const popupAddCloseButton = popupAddContainer.querySelector('.popup__close');
 export const formAddElement = popupAddContainer.querySelector('.popup__form');
 export const formSaveAddButton = popupAddContainer.querySelector('.popup__button');
 
@@ -24,6 +22,7 @@ export const linkAddPopup = formAddElement.querySelector('#image-link-input');
 
 export const popupDeleteContainer = document.querySelector('.popup_view_delete');
 export const buttonDelete = popupDeleteContainer.querySelector('.popup__button_view_delete');
+export const buttonCloseDelete = popupDeleteContainer.querySelector('.popup__close');
 
 export const popupAvaContainer = document.querySelector('.popup_view_edit-ava');
 export const buttonSetAva = popupAvaContainer.querySelector('.popup__button');
@@ -32,6 +31,10 @@ export const avaEditPopup = popupAvaContainer.querySelector('#ava-input');
 
 export const popupErrorContainer = document.querySelector('.popup_view_error');
 export const textError = popupErrorContainer.querySelector('.popup__error');
+
+export const cardsList = document.querySelector('.cards__items');
+
+export const closeButtons = document.querySelectorAll('.popup__close');
 
 export const selectors = {
   formSelector: '.popup__form',
