@@ -68,7 +68,7 @@ export const personId = Promise.all([getPersonInfo(), getInitialCards()])
   })
   .then(([userData, cards]) => {
     setProfileInfo(userData.name, userData.about, userData.avatar)
-    cards.forEach(function (item) {
+    cards.reverse().forEach(function (item) {
       addPlace({ name: item.name, link: item.link, likes: item.likes, id: item._id, owner: item.owner._id });
     })
     return (userData._id)

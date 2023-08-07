@@ -26,7 +26,6 @@ export const openPopupAndCheck = (popup) => {
   openPopup(popup);
   const formElement = popup.querySelector('.popup__form');
   checkElementsState(formElement, selectors);
-  document.addEventListener('keydown', closePopupEsc)
 }
 
 export const submitAddPlaceForm = (evt) => {
@@ -35,7 +34,7 @@ export const submitAddPlaceForm = (evt) => {
       addPlace({ name: card.name, link: card.link, likes: card.likes, id: card._id, owner: card.owner._id })
     });
   }
-  handleSubmit(makeRequest, evt, 'Создание...');
+  handleSubmit(makeRequest, evt);
 }
 
 const popups = document.querySelectorAll('.popup');

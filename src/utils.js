@@ -35,10 +35,10 @@ export function handleSubmit(request, evt, loadingText = 'Сохранение..
     request()
         .then(() => {
             evt.target.reset();
+            closePopup(popup);
         })
         .catch(catchError)
         .finally(() => {
             renderLoading(false, submitButton, initialText, loadingText);
-            closePopup(popup)
         });
 }
