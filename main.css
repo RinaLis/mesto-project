@@ -15,14 +15,14 @@
 .cards{margin:51px 0 0}@media screen and (max-width:654px){.cards{margin:36px 0 0}}
 .cards__items{-moz-column-gap:17px;column-gap:17px;display:grid;grid-template-columns:repeat(auto-fit,282px);grid-template-rows:auto;justify-content:center;list-style-type:none;margin:0;padding:0;row-gap:20px}
 .cards__item{background:#fff;border-radius:10px;display:grid;grid-template-areas:"cards__image cards__image" "cards__name cards__stroke" "cards__name cards__stroke-number";grid-template-columns:1fr 42px;overflow:hidden;position:relative;width:282px}
-.cards__image{aspect-ratio:1/1;width:282px}
+.cards__image{height:100%;-o-object-fit:cover;object-fit:cover;width:100%}
 .cards__name{font-size:24px;font-weight:900;grid-area:cards__name;line-height:29.05px;margin:25px 20px 31px 21px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cards__stroke{align-self:end;background-color:transparent;background-image:url(0bc60938ca96a5dcae18.svg);border:0;cursor:pointer;grid-area:cards__stroke;height:19px;width:22px}.cards__stroke:hover{opacity:.5}
 .cards__stroke_active{background-image:url(fe17a515669479b1e649.svg);opacity:1}
 .cards__stroke-number{font-size:13px;font-weight:400;grid-area:cards__stroke-number;line-height:normal;margin:0 6px}
 .cards__delete{background-color:transparent;background-image:url(823b0cf1b0b7e9cb7cad.svg);border:0;cursor:pointer;display:none;grid-area:cards__image;height:19px;position:absolute;right:20px;top:20px;width:18px}.cards__delete:hover{opacity:.6}
 .cards__delete_active{display:grid}
-.cards__open{border:0;cursor:pointer;grid-area:cards__image;height:100%;margin:0;padding:0;width:100%}
+.cards__open{aspect-ratio:1/1;border:0;cursor:pointer;grid-area:cards__image;margin:0;padding:0;width:282px}
 .footer{box-sizing:border-box;grid-area:footer;margin:67px 0 60px}@media screen and (max-width:900px){.footer{padding:0 19px}}@media screen and (max-width:654px){.footer{margin:48px 0 36px}}
 .footer__caption{color:#545454;font-size:18px;font-weight:400;line-height:22px;margin:0;padding:0}@media screen and (max-width:654px){.footer__caption{font-size:14px;line-height:16.94px}}
 .popup{align-items:center;background-color:rgba(0,0,0,.5);display:flex;height:100%;justify-content:center;left:0;opacity:0;position:fixed;top:0;width:100%;z-index:-1}
