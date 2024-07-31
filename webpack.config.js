@@ -42,6 +42,11 @@ module.exports = {
     template: './index.html'
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/404.html', to: '404.html' }
+      ]
+    })
   ] 
 }; 
